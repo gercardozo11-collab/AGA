@@ -116,13 +116,29 @@ max_x3 = st.number_input(
     format="%d"
 )
 
+min_x4 = st.number_input(
+    "Mínimo sensores de corriente",
+    min_value=0,
+    value=0,
+    step=1,
+    format="%d"
+)
+
+max_x4 = st.number_input(
+    "Máximo sensores de corriente",
+    min_value=min_x4,
+    value=50,
+    step=1,
+    format="%d"
+)
+
 # =========================
 # RESOLVER
 # =========================
 
 if st.button("Resolver"):
 
-    # Maximizar -> minimizar negativo
+    # Negativo porque milp minimiza
     c = -np.array([c1, c2, c3, c4])
 
     restricciones = LinearConstraint(
@@ -142,8 +158,8 @@ if st.button("Resolver"):
     )
 
     limites = Bounds(
-        [min_x1, min_x2, 0, 0],
-        [np.inf, np.inf, max_x3, np.inf]
+        [min_x1, min_x2, 0, min_x4],
+        [np.inf, np.inf, max_x3, max_x4]
     )
 
     # Todas las variables enteras
@@ -169,12 +185,12 @@ if st.button("Resolver"):
         col1, col2 = st.columns(2)
 
         with col1:
-            st.metric("Temperatura", x1)
-            st.metric("Presión", x2)
+            st.metric("Sensores de temperatura", x1)
+            st.metric("Sensores de presión", x2)
 
         with col2:
-            st.metric("Vibración", x3)
-            st.metric("Corriente", x4)
+            st.metric("Sensores de vibración", x3)
+            st.metric("Sensores de corriente", x4)
 
         st.metric("Cobertura máxima", cobertura)
 
