@@ -97,10 +97,10 @@ with col2:
     )
 
 # ==================================================
-# CANTIDAD DE SENSORES A INSTALAR
+# RESTRICCIONES
 # ==================================================
 
-st.subheader("Restricciones por sensor")
+st.subheader("Cantidad de sensores a instalar")
 
 fila1_col1, fila1_col2 = st.columns(2)
 
