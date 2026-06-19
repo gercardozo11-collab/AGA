@@ -8,7 +8,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("📡 Optimizador de Sensores")
+st.title("📡 Optimizador de instalacion de Sensores")
 
 # ==================================================
 # COBERTURA
