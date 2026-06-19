@@ -14,7 +14,7 @@ st.title("📡 Optimizador de Sensores")
 # COBERTURA
 # ==================================================
 
-st.subheader("Cobertura aportada por cada sensor")
+st.subheader("Cobertura de maquinas aportada por cada sensor")
 
 col1, col2, col3, col4 = st.columns(4)
 
