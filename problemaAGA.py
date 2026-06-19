@@ -97,7 +97,7 @@ with col2:
     )
 
 # ==================================================
-# RESTRICCIONES POR SENSOR
+# CANTIDAD DE SENSORES A INSTALAR
 # ==================================================
 
 st.subheader("Restricciones por sensor")
